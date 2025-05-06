@@ -9,11 +9,11 @@ export const gameboard = () => {
   for (let i = 0; i < 8; i++) {
     const tableRow = document.createElement("tr");
     let cellRowCoord = Math.abs(i - 7);
-    tableRow.textContent = cellRowCoord + 1;
+    tableRow.textContent = cellRowCoord;
     for (let z = 0; z < 8; z++) {
       const tableCell = document.createElement("td");
       let cellColumnCoord = z;
-      tableCell.textContent = cellColumnCoord + 1;
+      tableCell.textContent = cellColumnCoord;
       if ((i + z) % 2 == 0) {
         tableCell.setAttribute("class", "cell whitecell");
         tableRow.appendChild(tableCell);
@@ -44,3 +44,10 @@ export const gameboard = () => {
 
   document.body.appendChild(chessTable);
 };
+
+const resetBoard = (function () {
+  const resetButton = document.querySelector(".clear-board-btn");
+  resetButton.addEventListener("click", function () {
+    location.reload();
+  });
+})();

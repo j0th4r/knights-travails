@@ -1,3 +1,5 @@
+import { displayMoves } from "./display-moves";
+
 const squareRegistry = new Map();
 
 const chessSquare  = (x, y) => {
@@ -59,9 +61,14 @@ const knightsTravails = (start, finish) => {
   while (!path.includes(origin)) {
     const prevSquare = path[0].getPredecessor();
     path.unshift(prevSquare);;
-  }
-  console.log(`You made it in ${path.length - 1} moves!  Here's your path`);
-  path.forEach(square => console.log(square.name()));
+  } 
+  // console.log(`You made it in ${path.length - 1} moves!  Here's your path`);
+  // path.forEach(square => console.log(square.name()));
+  let squareCoord = [];
+  path.forEach((square) => {
+    squareCoord.push(square.name());
+  });
+  displayMoves(path, squareCoord);
 }
 
 export { knightsTravails }

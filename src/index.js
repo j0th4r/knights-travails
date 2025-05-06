@@ -1,12 +1,12 @@
 import './styles.css';
 import { gameboard } from './gameboard';
-import { knightsTravails } from './search-algo';
+import { uiController } from './ui-move';
 
 // Application controller module
 const appController = {
   init() {
     gameboard();
-    knightsTravails([3, 3], [4, 3])
+    uiController();
   }
 };
 
